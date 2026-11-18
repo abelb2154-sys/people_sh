@@ -1,11 +1,11 @@
 const personagens = [
   {
-    frase: '"ve been solving all the project ideas on roadmap.sh and I am surprised how far i have come from when I started."',
+    frase: '"Ive been solving all the project ideas on roadmap.sh and I am surprised how far i have come from when I started."',
     foto: './img/img1.png',
     nome: 'Artem Jones'
   },
   {
-    frase: '" Since starting my career 2021.1 have only followed one resource  roadmap.sh.It trully helped me go /from 0 to having a joband changing the financial trajectory of my family"',
+    frase: '" Since starting my career 2021.1 have only followed one resource  roadmap.sh.It trully helped me go from 0 to having a job and changing the financial trajectory of my family"',
     foto: './img/img2.png',
     nome: 'Artem Jones'
   },
