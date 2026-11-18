@@ -1,0 +1,227 @@
+*, body{
+box-sizing: border-box;
+
+}
+/* Container: align-items: stretch faz os dois blocos terem exatamente a mesma altura total */
+/* --- TODO O SEU CSS ANTERIOR MANTIDO 100% INTACTO --- */
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que o 3º bloco quebre para a linha de baixo sem espremer os dois primeiros */
+  justify-content: center;
+  align-items: stretch;
+  padding-top: 30px;
+  gap: 20px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.bloco-dialogo {
+  flex: 1 1 380px; /* Mantém os dois primeiros lado a lado com até 400px */
+  max-width: 400px;
+  font-family: sans-serif;
+}
+
+.balao-fala {
+  position: relative;
+  background: black;
+  color: #fff;
+  height: 20vh;
+  box-sizing: border-box; 
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 12px;
+  max-width: 400px;
+  font-size: 14px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.balao-fala::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  border-width: 8px 8px 0;
+  border-style: solid;
+  border-color: black transparent;
+  display: block;
+  width: 0;
+}
+
+.rodape-personagem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding-left: 8px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.texto-lateral {
+  font-size: 14px;
+  color: #333;
+}
+
+.bloco-dialogo:nth-child(2) {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bloco-dialogo:nth-child(2) .balao-fala {
+  background: transparent;
+  color: #333333;
+  height: auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.bloco-dialogo:nth-child(2) .balao-fala::after {
+  display: none;
+}
+
+.bloco-dialogo:nth-child(2) .rodape-personagem {
+  margin-top: 12px;
+  padding-left: 0;
+}
+
+/* --- NOVO ESTILO EXCLUSIVO PARA O TERCEIRO BLOCO --- */
+
+.bloco-dialogo:nth-child(3) {
+  flex: 1 1 100%;          /* Ocupa a largura total da linha abaixo */
+  max-width: 820px;        /* Acompanha a largura máxima do container */
+  display: flex;
+  flex-direction: row-reverse; /* Coloca a foto à esquerda (33%) e o card à direita (66%) */
+  align-items: stretch;
+  gap: 20px;               /* Gap entre a foto e o card */
+}
+
+/* Área da foto ocupando 33% */
+.bloco-dialogo:nth-child(3) .rodape-personagem {
+  flex: 0 0 calc(33% - 10px); /* 33% descontando metade do gap */
+  margin-top: 0;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bloco-dialogo:nth-child(3) .avatar {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  border-radius: 12px;     /* Formato retangular/quadrado arredondado para preencher os 33% */
+  object-fit: cover;
+}
+
+/* Oculta o nome solto caso queira apenas a foto nos 33% (remova se quiser manter) */
+.bloco-dialogo:nth-child(3) .texto-lateral {
+  display: none;
+}
+
+/* Card ao lado ocupando 66% */
+/* Card ao lado ocupando 66% com fundo preto */
+.bloco-dialogo:nth-child(3) .balao-fala {
+  flex: 0 0 calc(66% - 10px);
+  max-width: none;
+  height: auto;
+  min-height: 20vh;
+  background-color: #000000; /* Fundo preto */
+  color: #ffffff;            /* Texto branco para contraste e leitura */
+  border: 1px solid #333333; /* Borda escura sutil */
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* Remove o triângulo do card do terceiro bloco */
+.bloco-dialogo:nth-child(3) .balao-fala::after {
+  display: none;
+}
+
+.photoshow-container {
+  width: calc(100% - 32px); /* 100% em telas menores com pequeno gap lateral */
+  max-width: 820px;         /* Trava exatamente na mesma largura dos blocos acima */
+  margin: 20px auto;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  background-color: #ffffff;
+  font-family: sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.slide-conteudo {
+  flex: 1;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.frase {
+  font-size: 16px;
+  font-style: italic;
+  color: #333333;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 14px 0;
+}
+
+.foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px auto;
+  display: block;
+}
+
+.nome {
+  font-size: 18px;
+  color: black;
+  margin: 0;
+}
+
+.btn-seta {
+  background-color: black;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.btn-seta:hover {
+  background-color: #0056b3;
+}
